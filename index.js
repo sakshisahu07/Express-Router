@@ -1,9 +1,13 @@
 
 
+//read the file
+var http=require("http");
 var fs=require("fs");
 
-fs.appendFile("raj.txt","welcome to cybrom bhopal",(err)=>{
-    if(err) throw err;
-    console.log("file succefully created");
-})
+http.createServer((req,res)=>{
+    fs.readFile("adi.txt",(err,data)=>{
+        res.write(data);
 
+        res.end();
+    })
+}).listen(8000);
